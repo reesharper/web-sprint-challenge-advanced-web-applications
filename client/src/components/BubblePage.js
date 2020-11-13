@@ -19,15 +19,18 @@ const BubblePage = () => {
 
   const updateColors = (colorIn) => {
     const idx = colorList.findIndex(el => el.id === colorIn.id);
-    if (idx === -1) {
-    } else {
+    console.log(idx);
+    if (idx !== -1) {
+      console.log(colorList[idx]);
       setColorList([...colorList, colorList[idx] = { ...colorIn }]);
-    }
+    } 
+
+    
   }
 
   return (
     <>
-      <ColorList colors={colorList} updateColors={setColorList} />
+      <ColorList colors={colorList} updateColors={setColorList} updateColor={updateColors}/>
       <Bubbles colors={colorList} />
     </>
   );
